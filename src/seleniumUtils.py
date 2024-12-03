@@ -19,7 +19,7 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-def getWebPageSeleniumHTML(url:str, waitingTime:int=random.randint(5, 10), quitDriver:bool=True) -> BeautifulSoup:
+def getWebPageHTML(url:str, waitingTime:int=random.randint(5, 10), quitDriver:bool=True) -> BeautifulSoup:
     '''
     Given the URL of a webpage, this function returns the HTML source of the webpage.
 
