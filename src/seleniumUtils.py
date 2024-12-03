@@ -24,10 +24,11 @@ def getWebPageHTML(url:str, waitingTime:int=random.randint(5, 10), quitDriver:bo
     Given the URL of a webpage, this function returns the HTML source of the webpage.
 
     Args:
-        url (str): The URL of the webpage to scrape.
+    - url (str): The URL of the webpage to scrape.
 
     Returns:
-        BeautifulSoup: The HTML source of the webpage.
+    - BeautifulSoup: The HTML source of the webpage.
+    - webdriver: The Chrome WebDriver instance used to scrape the webpage.
     '''
 
     chromeDriverOptions = Options()
@@ -62,11 +63,10 @@ def alwaysScrollDown(driver:webdriver) -> None:
     This function sets the web page to full display mode, then enters a loop where it scrolls to the bottom of the page. After each scroll, it waits for a random interval between 5 to 10 seconds before checking if new content has been loaded by comparing the current document height with the height from the previous scroll. If the height remains unchanged, it breaks the loop, indicating that there’s no more content to load.
 
     Args:
-        driver (webdriver): The Selenium WebDriver instance controlling the web browser.
+    - driver (webdriver): The Selenium WebDriver instance controlling the web browser.
     
     Returns:
-        None: This function does not return a value but performs the scrolling action.
-
+    - None: This function does not return a value but performs the scrolling action.
     '''
 
     logging.info(f'Setting the page to full display...')
@@ -83,3 +83,5 @@ def alwaysScrollDown(driver:webdriver) -> None:
             break
 
         lastHeight = newHeight
+    
+    return None
